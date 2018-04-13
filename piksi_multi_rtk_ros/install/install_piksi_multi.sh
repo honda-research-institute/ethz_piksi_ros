@@ -26,20 +26,15 @@ if ls $SBP_PYTHON_DIRECTORY 1> /dev/null 2>&1; then
     echo "Do you wish to remove it and install version $REPO_TAG ? [y or Y to accept]"
 	read remove_other_libspb
 
-	if [[ $remove_other_libspb == "Y" || $remove_other_libspb == "y" ]]; then
-		echo "Removing previous libsbp."
-		sudo rm -rf $SBP_PYTHON_DIRECTORY
-	else
-		echo "Installation procedure interrupted."
-		exit 1
-	fi
+  echo "Removing previous libsbp."
+  sudo rm -rf $SBP_PYTHON_DIRECTORY
 
 fi
 
 # Install requirements.
 cd ./python
 echo "Installing SBP dependencies."
-sudo apt-get install pandoc
+sudo apt-get -y install pandoc
 sudo pip install tox
 sudo pip install -r requirements.txt
 sudo pip install markupsafe
@@ -61,14 +56,10 @@ if id -nG "$USER" | grep -qw dialout; then
 else
     # $USER does not belong to dialout
     echo " "
-	echo "Do you wish to add the current user ($USER) to 'dialout' group? [y or Y to accept]"
-	read add_user_to_dialout
 
-	if [[ $add_user_to_dialout == "Y" || $add_user_to_dialout == "y" ]]; then
-	    echo "Adding user $USER to 'dialout' group."
-	    sudo adduser $(whoami) dialout
-	    echo "Please logout and back in for the new group to take effect."
-	fi
+    echo "Adding user $USER to 'dialout' group."
+    sudo adduser $(whoami) dialout
+    echo "Please logout and back in for the new group to take effect."
 
 fi
 

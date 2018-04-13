@@ -30,7 +30,7 @@ from sbp.observation import *
 from sbp.orientation import * # WARNING: orientation messages are still draft messages.
 from sbp.piksi import MsgUartState, SBP_MSG_UART_STATE
 from sbp.settings import *
-from zope.interface.exceptions import Invalid
+#from zope.interface.exceptions import Invalid
 # Piksi Multi features an IMU
 from sbp.imu import *
 # At the moment importing 'sbp.version' module causes ValueError: Cannot find the version number!
