@@ -53,7 +53,7 @@ baud_rate: 230400
 
 # tcp_addr: the IP address of the receiver. By default, Swift Navigation
 # receivers have an IP address of 192.168.0.222.
-tcp_addr: 192.168.0.101
+tcp_addr: 192.168.10.101
 
 # tcp_port: the port number of the TCP server. By default, Swift Navigation
 # receivers publish SBP data on TCP port 55555.
