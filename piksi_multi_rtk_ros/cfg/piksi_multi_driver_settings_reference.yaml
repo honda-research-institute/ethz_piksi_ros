@@ -9,10 +9,14 @@ interface: 'tcp'
 base_station_mode: false
 
 # if true, output every topic read by this driver
-debug_mode: false
+debug_mode: true
 
 # if true the driver is verbose.
 driver_verbose: true
+
+# if true, raw imu and magnetometer are published
+# (messages are available only if enabled with the swiftnav console).
+publish_raw_imu_and_mag: true
 
 # broadcast_addr: ip address to use for broadcasting corrections
 # whenever possible, use network broadcast, not global ip broadcast
@@ -33,6 +37,8 @@ navsatfix_frame_id: 'base_link'
 # Variance to be published in the NavSatFix message (in diagonal part).
 # Single Point Positioning (SPP).
 var_spp: [25.0, 25.0, 64.0]
+# Single Point Positioning (SPP) with SBAS.
+var_spp_sbas: [1.0, 1.0, 1.0]
 # RTK float mode.
 var_rtk_float: [25.0, 25.0, 64.0]
 # RTK fix mode.
